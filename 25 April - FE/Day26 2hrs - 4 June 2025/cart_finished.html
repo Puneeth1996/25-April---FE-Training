@@ -1,236 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Product Page & Cart</title>
-		<style>
-			body {
-				font-family: Arial, sans-serif;
-				margin: 0;
-				padding: 0;
-				background: #f4f4f4;
-			}
-			header {
-				background: #333;
-				color: #fff;
-				padding: 1rem;
-				text-align: center;
-			}
-			nav {
-				display: flex;
-				justify-content: center;
-				gap: 2rem;
-				margin: 1rem;
-			}
-			nav a {
-				text-decoration: none;
-				color: #333;
-				font-weight: bold;
-			}
-			.container {
-				padding: 2rem;
-			}
-			.products,
-			.cart {
-				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-				gap: 2rem;
-			}
-			.product,
-			.cart-item {
-				background: #fff;
-				padding: 1rem;
-				border-radius: 8px;
-				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-			}
-			button {
-				background: #28a745;
-				color: #fff;
-				border: none;
-				padding: 0.5rem 1rem;
-				border-radius: 4px;
-				cursor: pointer;
-			}
-			button:hover {
-				background: #218838;
-			}
-		</style>
-	</head>
-	<body>
-		<header>
-			<h1>My Store</h1>
-		</header>
 
-		<nav>
-			<a href="#products" onclick="showPage('products')">Products</a>
-			<a href="#cart" onclick="showPage('cart')">Cart</a>
-		</nav>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Product Page & Cart</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background: #f4f4f4;
+		}
 
-		<div class="container">
-			<section id="products" class="products">
-				<!-- Add more product placeholders here -->
-			</section>
+		header {
+			background: #333;
+			color: #fff;
+			padding: 1rem;
+			text-align: center;
+		}
 
-			<section id="cart" class="cart" style="display: none">
-				<!-- Cart items will go here -->
-			</section>
-		</div>
+		nav {
+			display: flex;
+			justify-content: center;
+			gap: 2rem;
+			margin: 1rem;
+		}
 
-		<script>
-			const products_array = [
-				{
-					name: 'Product 1',
-					id: 1,
-					price: 10,
-					cart_qty: 0,
-					discount: 0,
-					date_added: '2025-05-01',
-					date_expiry: '2025-05-18',
-					avb_qty: 10,
-				},
-				{
-					name: 'Product 2',
-					id: 2,
-					price: 25,
-					cart_qty: 0,
-					discount: 0,
-					date_added: '2025-05-01',
-					date_expiry: '2025-05-18',
-					avb_qty: 10,
-				},
-				{
-					name: 'Product 3',
-					id: 3,
-					price: 5,
-					cart_qty: 0,
-					discount: 0,
-					date_added: '2025-05-01',
-					date_expiry: '2025-05-18',
-					avb_qty: 10,
-				},
-				{
-					name: 'Product 4',
-					id: 4,
-					price: 55,
-					cart_qty: 0,
-					discount: 0,
-					date_added: '2025-05-01',
-					date_expiry: '2025-05-18',
-					avb_qty: 10,
-				},
-				{
-					name: 'Product 5',
-					id: 5,
-					price: 60,
-					cart_qty: 0,
-					discount: 0,
-					date_added: '2025-05-01',
-					date_expiry: '2025-05-18',
-					avb_qty: 10,
-				},
-				{
-					name: 'Product 6',
-					id: 6,
-					price: 35,
-					cart_qty: 0,
-					discount: 0,
-					date_added: '2025-05-01',
-					date_expiry: '2025-05-18',
-					avb_qty: 10,
-				},
-				{
-					name: 'Product 7',
-					id: 7,
-					price: 15,
-					cart_qty: 0,
-					discount: 0,
-					date_added: '2025-05-01',
-					date_expiry: '2025-05-18',
-					avb_qty: 100,
-				},
-				{
-					name: 'Product 8',
-					id: 8,
-					price: 8,
-					cart_qty: 0,
-					discount: 0,
-					date_added: '2025-05-01',
-					date_expiry: '2025-05-18',
-					avb_qty: 10,
-				},
-			]
-			const cart_array = []
+		nav a {
+			text-decoration: none;
+			color: #333;
+			font-weight: bold;
+		}
 
-			function renderProducts() {
-				const products_section = document.getElementById('products')
-				products_section.innerHTML = ''
-				products_array.forEach((product) => {
-					const productElement = document.createElement('div')
-					productElement.className = 'product'
-					productElement.innerHTML = `
-						<h3>${product.name}</h3>
-						<p>Price: $${product.price}</p>
-						<button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
-					`
-					productElement
-						.querySelector('.add-to-cart')
-						.addEventListener('click', () => {
-							handleAddToCart(product.id)
-						})
-					products_section.appendChild(productElement)
+		.container {
+			padding: 2rem;
+		}
+
+		.products,
+		.cart {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+			gap: 2rem;
+		}
+
+		.product,
+		.cart-item {
+			background: #fff;
+			padding: 1rem;
+			border-radius: 8px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		button {
+			background: #28a745;
+			color: #fff;
+			border: none;
+			padding: 0.5rem 1rem;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background: #218838;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>My Store</h1>
+	</header>
+
+	<nav>
+		<a href="#products" onclick="showPage('products')">Products</a>
+		<a href="#cart" onclick="showPage('cart')">Cart</a>
+	</nav>
+
+	<div class="container">
+		<section id="products" class="products">
+			<!-- Add more product placeholders here -->
+		</section>
+
+		<section id="cart" class="cart" style="display: none">
+			<!-- Cart items will go here -->
+		</section>
+	</div>
+	<script>
+		const apiBase = 'http://localhost:3000/cart'
+		let products_array = []
+
+		async function fetchProducts() {
+			try {
+				const res = await fetch(apiBase)
+				if (!res.ok) throw new Error('Failed to fetch products')
+				products_array = await res.json()
+				renderProducts()
+			} catch (err) {
+				console.error('Error loading products:', err)
+			}
+		}
+
+
+		function renderProducts() {
+			const products_section = document.getElementById('products')
+			products_section.innerHTML = ''
+			products_array.forEach((product) => {
+				const productElement = document.createElement('div')
+				productElement.className = 'product'
+				productElement.innerHTML = `
+				<h3>${product.name}</h3>
+				<p>Price: $${product.price}</p>
+				<button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
+			`
+				productElement.querySelector('.add-to-cart').addEventListener('click', () => {
+					handleAddToCart(product)
+				})
+				products_section.appendChild(productElement)
+			})
+		}
+
+		async function handleAddToCart(product) {
+			const res = await fetch(`${apiBase}/${product.id}`)
+			if (res.ok) {
+				const existing = await res.json()
+				// If item exists, increase quantity
+				await fetch(`${apiBase}/${product.id}`, {
+					method: 'PUT',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ quantity: existing.quantity + 1 })
+				})
+			} else {
+				// Else add new item
+				await fetch(apiBase, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ id: product.id, name: product.name, price: product.price, quantity: 1 })
 				})
 			}
+			updateCartScreen()
+		}
 
-			function handleAddToCart(productId) {
-				const product = products_array.find((p) => p.id === productId)
-				const inCart = cart_array.find((item) => item.id === productId)
-				if (inCart) {
-					inCart.cart_qty += 1
-				} else {
-					cart_array.push({ ...product, cart_qty: 1 })
-				}
-				updateCartScreen()
-			}
+		async function updateCartScreen() {
+			const res = await fetch(apiBase)
+			const cartItems = await res.json()
+			const cart_section = document.getElementById('cart')
+			cart_section.innerHTML = ''
+			cartItems.forEach((item) => {
+				const cartItem = document.createElement('div')
+				cartItem.className = 'cart-item'
+				cartItem.innerHTML = `
+				<h3>${item.name}</h3>
+				<p>Price: $${item.price}</p>
+				<p>Quantity: ${item.quantity}</p>
+				<button onclick="removeFromCart(${item.id})">Remove</button>
+				<button onclick="increaseQuantity(${item.id}, ${item.quantity})">Increase(+)</button>
+			`
+				cart_section.appendChild(cartItem)
+			})
+		}
 
-			function updateCartScreen() {
-				const cart_section = document.getElementById('cart')
-				cart_section.innerHTML = ''
-				cart_array.forEach((item) => {
-					const cartItem = document.createElement('div')
-					cartItem.className = 'cart-item'
-					cartItem.innerHTML = `
-						<h3>${item.name}</h3>
-						<p>Price: $${item.price}</p>
-						<p>Quantity: ${item.cart_qty}</p>
-						<button onclick="removeFromCart(${item.id})">Remove</button>
-						<button onclick="increaseQuantity(${item.id})">Increase(+)</button>
-					`
-					cart_section.appendChild(cartItem)
-				})
-			}
+		async function removeFromCart(productId) {
+			await fetch(`${apiBase}/${productId}`, { method: 'DELETE' })
+			updateCartScreen()
+		}
 
-			function removeFromCart(productId) {
-				const index = cart_array.findIndex((item) => item.id === productId)
-				if (index > -1) cart_array.splice(index, 1)
-				updateCartScreen()
-			}
+		async function increaseQuantity(productId, currentQty) {
+			await fetch(`${apiBase}/${productId}`, {
+				method: 'PUT',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ quantity: currentQty + 1 })
+			})
+			updateCartScreen()
+		}
 
-			function increaseQuantity(productId) {
-				const item = cart_array.find((item) => item.id === productId)
-				if (item) item.cart_qty += 1
-				updateCartScreen()
-			}
+		function showPage(pageId) {
+			document.getElementById('products').style.display = pageId === 'products' ? 'grid' : 'none'
+			document.getElementById('cart').style.display = pageId === 'cart' ? 'grid' : 'none'
+			if (pageId === 'cart') updateCartScreen()
+		}
 
-			function showPage(pageId) {
-				document.getElementById('products').style.display =
-					pageId === 'products' ? 'grid' : 'none'
-				document.getElementById('cart').style.display =
-					pageId === 'cart' ? 'grid' : 'none'
-			}
+		// Initial render
+		fetchProducts()
+	</script>
 
-			// Initial render
-			renderProducts()
-		</script>
-	</body>
+</body>
+
 </html>
