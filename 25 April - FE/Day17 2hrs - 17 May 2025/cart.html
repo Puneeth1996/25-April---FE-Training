@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Product Page & Cart</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background: #f4f4f4;
+			}
+			header {
+				background: #333;
+				color: #fff;
+				padding: 1rem;
+				text-align: center;
+			}
+			nav {
+				display: flex;
+				justify-content: center;
+				gap: 2rem;
+				margin: 1rem;
+			}
+			nav a {
+				text-decoration: none;
+				color: #333;
+				font-weight: bold;
+			}
+			.container {
+				padding: 2rem;
+			}
+			.products,
+			.cart {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+				gap: 2rem;
+			}
+			.product,
+			.cart-item {
+				background: #fff;
+				padding: 1rem;
+				border-radius: 8px;
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			}
+			button {
+				background: #28a745;
+				color: #fff;
+				border: none;
+				padding: 0.5rem 1rem;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+			button:hover {
+				background: #218838;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>My Store</h1>
+		</header>
+
+		<nav>
+			<a href="#products" onclick="showPage('products')">Products</a>
+			<a href="#cart" onclick="showPage('cart')">Cart</a>
+		</nav>
+
+		<div class="container">
+			<section id="products" class="products">
+				<div class="product">
+					<h3>Product 1</h3>
+					<p>$10.00</p>
+					<button>Add to Cart</button>
+				</div>
+				<div class="product">
+					<h3>Product 2</h3>
+					<p>$15.00</p>
+					<button>Add to Cart</button>
+				</div>
+				<!-- Add more product placeholders here -->
+			</section>
+
+			<section id="cart" class="cart" style="display: none">
+				<div class="cart-item">
+					<h3>Product 1</h3>
+					<p>Quantity: 1</p>
+					<p>Price: $10.00</p>
+					<button>Remove</button>
+				</div>
+				<!-- Cart items will go here -->
+			</section>
+		</div>
+
+		<script>
+			function showPage(pageId) {
+				document.getElementById('products').style.display =
+					pageId === 'products' ? 'grid' : 'none'
+				document.getElementById('cart').style.display =
+					pageId === 'cart' ? 'grid' : 'none'
+			}
+		</script>
+	</body>
+</html>

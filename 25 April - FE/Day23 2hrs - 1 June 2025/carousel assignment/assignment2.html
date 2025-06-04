@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./asnmnt2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-RXf+QSDCUQs6gkH+q8RkCkUeVuJQ2I9Z7HvU2ZhZkQf5cKXJhM1m5hRO4OjHNF0TqW8Mf2BdL2Bw8Fi7IQn+4g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <a class="left-point" onclick="updateSlides(-1)">&lt;</a>
+        <div class="carosel-container">
+            <div class="card">
+                <div class="img"><img src="./c1.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c2.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c3.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c4.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c1.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c2.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c3.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c4.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c1.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c2.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c3.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c4.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+        </div>
+        <a class="right-point" onclick="updateSlides(1)">&gt;</a>
+    </div>
+
+    <script>
+        const cardsPerView = 5
+        const cards = document.querySelectorAll('.card');
+        let showingCards = [];
+        let maxSlides = Math.ceil(cards.length / cardsPerView)
+        console.log("🚀 ~ maxSlides:", maxSlides)
+        let slideIndex = 0
+        function showSlides(index) {
+            slideIndex++
+            // cards with with the slide index to (index + maxSlides) % maxSlides
+            console.log(slideIndex)
+            console.log(slideIndex % cardsPerView)
+        }
+
+        function updateSlides(n) {
+            showSlides(slideIndex + n);
+        }
+
+        window.addEventListener('load', () => {
+            console.log('Before Loading the page')
+            updateSlides(slideIndex);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+Steup 
+npm install
+npm start
+
+Endpoints that are present are as below: 
+
+
+GET /cart - Get all items
+
+GET /cart/:id - Get item by ID
+
+POST /cart - Add new item
+Body: { "name": "Item Name", "price": 2.99, "quantity": 1 }
+
+PUT /cart/:id - Update item
+
+DELETE /cart/:id - Delete item

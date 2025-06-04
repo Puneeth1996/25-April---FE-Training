@@ -1,0 +1,30 @@
+span {
+	color: #6632cd;
+	background: #e05b22;
+	border: 1px dashed #ae3e61;
+}
+.normal-text {
+	color: #000;
+	background: #fff;
+	border: 1px solid gray;
+}
+#user-consent span {
+	color: #e59f2d;
+	background: #ebb87f;
+	border: 1px solid #000;
+}
+
+.div-first-collection-paragraph h3 + p {
+	background: #dde022;
+	border: 1px solid #2ac240;
+}
+
+.div-second-collection-paragraph h1 ~ div {
+	background: #22e0dd;
+	border: 1px solid #b52ac2;
+}
+
+.div-third-collection-paragraph p:nth-child(odd) {
+	background: #2274e0;
+	border: 1px dashed #c23c2a;
+}

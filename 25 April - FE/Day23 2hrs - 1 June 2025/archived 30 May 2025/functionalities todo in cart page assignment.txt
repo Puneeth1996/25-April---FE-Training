@@ -1,0 +1,6 @@
+Add to cart button on products page 
+Remove from cart button on the cart page 
+Update  quantity on adding the same product multiple times 
+Creating add and Subtract button to up or down the quantity in the cart for a specific product in the cart page 
+calaculate cart total in the cart page 
+Clear Button to clear all the products

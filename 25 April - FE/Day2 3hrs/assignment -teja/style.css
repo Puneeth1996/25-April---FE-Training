@@ -1,0 +1,61 @@
+body,
+div,
+a,
+span {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+}
+
+.firstbox {
+	display: inline-block;
+	background-color: #f8f9fa;
+	padding: 10px 5%;
+	border-bottom: 1px solid #e0e0e0;
+	white-space: nowrap;
+}
+
+.initial.titles {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.initial.titles a {
+	color: #333;
+	text-decoration: none;
+	padding: 0 10px;
+	border-right: 1px solid #ddd;
+	display: inline-block;
+}
+
+.initial.titles a:first-child {
+	padding-left: 0;
+}
+
+.initial.titles a:last-child {
+	border-right: none;
+}
+
+.contact {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.contact {
+	display: inline-block;
+	margin-left: 20px;
+}
+
+.clearfix {
+	clear: both;
+}
+
+/* Optional icons */
+.phone:before {
+	content: '📞 ';
+}
+
+.email:before {
+	content: '✉ ';
+}

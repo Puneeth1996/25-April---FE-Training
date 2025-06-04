@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Contact Form</title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #f4f4f4;
+				margin: 0;
+				padding: 20px;
+			}
+			.services-section {
+				background-color: #fff;
+				padding: 20px;
+				border-radius: 5px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+				max-width: 90%;
+				margin: auto;
+			}
+			h2 {
+				text-align: center;
+				color: #333;
+			}
+			input[type='text'],
+			input[type='email'],
+			input[type='number'],
+			select {
+				width: 100%;
+				padding: 10px 8px;
+				margin: 4px 0;
+				border: 1px solid #ccc;
+			}
+			.input-group input[type='submit'],
+			.input-group input[type='reset'] {
+				background-color: #4caf50;
+				color: white;
+				padding: 10px 15px;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+			.input-group input[type='reset'] {
+				background-color: #9ab09b;
+				color: #4caf50;
+			}
+			.input-group input[type='text'],
+			.input-group input[type='email'],
+			.input-group input[type='number'],
+			select {
+				width: 100%;
+				padding: 10px 8px;
+				margin: 8px 0;
+				border: 1px solid #ccc;
+			}
+			.contact-grid-container {
+				display: grid;
+				grid-template-columns: repeat(2, 6fr);
+				grid-template-rows: 50px repeat(4, 60px) 90px 60px;
+				gap: 20px;
+			}
+			.gender-cell {
+				grid-column: 1 / 3;
+				grid-row: 1 / 2;
+			}
+			.firstName-cell {
+				grid-column: 1 / 2;
+				grid-row: 2 / 3;
+			}
+			.lastName-cell {
+				grid-column: 2 / 3;
+				grid-row: 2 / 3;
+			}
+			.email-cell {
+				grid-column: 1 / 2;
+				grid-row: 3 / 4;
+			}
+			.phone-cell {
+				grid-column: 2 / 3;
+				grid-row: 3 / 4;
+			}
+			.address1-cell {
+				grid-column: 1 / 2;
+				grid-row: 4 / 5;
+			}
+			.address2-cell {
+				grid-column: 2 / 3;
+				grid-row: 4 / 5;
+			}
+			.sate-cell {
+				grid-column: 1 / 2;
+				grid-row: 5 / 6;
+			}
+			.zipcode-cell {
+				grid-column: 2 / 3;
+				grid-row: 5 / 6;
+			}
+			.checkbox-cell {
+				grid-column: 1 / 3;
+				grid-row: 6 / 7;
+			}
+			.button-cell {
+				grid-column: 1 / 3;
+				grid-row: 7 / 8;
+			}
+			.input-group label {
+				min-width: fit-content;
+			}
+			.input-group {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+			}
+			.gender-cell,
+			.checkbox-cell {
+				display: block;
+			}
+			.button-cell input:nth-child(even) {
+				margin: 0 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="services-section">
+			<h2>Contact Us</h2>
+			<div class="contact-grid-container">
+				<div class="input-group gender-cell">
+					<label>Select Gender: </label>
+					<input type="radio" id="Male" name="Gender" value="Male" />
+					<label for="Male">Male</label>
+					<input type="radio" id="Female" name="Gender" value="Female" />
+					<label for="Female">Female</label>
+					<input type="radio" id="Other" name="Gender" value="Other" />
+					<label for="Other">Other</label>
+				</div>
+				<div class="input-group firstName-cell">
+					<label for="firstName">First Name: </label>
+					<input
+						type="text"
+						id="firstName"
+						name="firstName"
+						value="Enter first name"
+					/>
+				</div>
+				<div class="input-group lastName-cell">
+					<label for="lastName">Last Name: </label>
+					<input
+						type="text"
+						id="lastName"
+						name="lastName"
+						value="Enter last name"
+					/>
+				</div>
+
+				<div class="input-group email-cell">
+					<label for="email">Email: </label>
+					<input type="email" id="email" name="email" value="Enter Email" />
+				</div>
+				<div class="input-group phone-cell">
+					<label for="phone">Phone Number: </label>
+					<input
+						type="number"
+						id="phone"
+						name="phone"
+						value="Enter Phone Number"
+					/>
+				</div>
+
+				<div class="input-group address1-cell">
+					<label for="address1">Address Line 1: </label>
+					<input
+						type="text"
+						id="address1"
+						name="address1"
+						value="Enter Address Line 1"
+					/>
+				</div>
+				<div class="input-group address2-cell">
+					<label for="address2">Address Line 2: </label>
+					<input
+						type="text"
+						id="address2"
+						name="address2"
+						value="Enter Address Line 2"
+					/>
+				</div>
+				<div class="input-group sate-cell">
+					<label for="sate">Select State: </label>
+					<select id="state" name="state" value="Select State">
+						<option value="Select State">Select State</option>
+						<option value="Andhra Pradesh">Andhra Pradesh</option>
+						<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+						<option value="Assam">Assam</option>
+						<option value="Bihar">Bihar</option>
+						<option value="Chhattisgarh">Chhattisgarh</option>
+						<option value="Goa">Goa</option>
+						<option value="Gujarat">Gujarat</option>
+						<option value="Haryana">Haryana</option>
+						<option value="Himachal Pradesh">Himachal Pradesh</option>
+						<option value="Jharkhand">Jharkhand</option>
+						<option value="Karnataka">Karnataka</option>
+						<option value="Kerala">Kerala</option>
+						<option value="Madhya Pradesh">Madhya Pradesh</option>
+						<option value="Maharashtra">Maharashtra</option>
+						<option value="Manipur">Manipur</option>
+						<option value="Meghalaya">Meghalaya</option>
+						<option value="Mizoram">Mizoram</option>
+						<option value="Nagaland">Nagaland</option>
+						<option value="Odisha">Odisha</option>
+						<option value="Punjab">Punjab</option>
+						<option value="Rajasthan">Rajasthan</option>
+						<option value="Sikkim">Sikkim</option>
+						<option value="Tamil Nadu">Tamil Nadu</option>
+						<option value="Telangana">Telangana</option>
+						<option value="Tripura">Tripura</option>
+						<option value="Uttar Pradesh">Uttar Pradesh</option>
+						<option value="Uttarakhand">Uttarakhand</option>
+						<option value="West Bengal">West Bengal</option>
+						<option value="Andaman and Nicobar Islands">
+							Andaman and Nicobar Islands
+						</option>
+					</select>
+				</div>
+				<div class="input-group zipcode-cell">
+					<label for="zipcode">Zipcode Number: </label>
+					<input
+						type="text"
+						id="zipcode"
+						name="zipcode"
+						value="Enter Zipcode Number"
+					/>
+				</div>
+
+				<div class="input-group checkbox-cell">
+					<input type="checkbox" id="terms" name="terms" value="terms" />
+					<label for="terms">I agree to the terms and conditions</label>
+					<br />
+					<input type="checkbox" id="privacy" name="privacy" value="privacy" />
+					<label for="privacy">I agree to the privacy policy</label>
+					<br />
+					<input
+						type="checkbox"
+						id="newsletter"
+						name="newsletter"
+						value="newsletter"
+					/>
+					<label for="newsletter">I want to receive the newsletter</label>
+					<br />
+				</div>
+				<div class="input-group button-cell">
+					<input type="submit" value="Submit" />
+					<input type="reset" value="Reset" />
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

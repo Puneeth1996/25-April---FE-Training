@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .fir-container{
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            box-sizing: border-box;
+            display: block;
+            border: 1px solid black;
+             }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+        .initial{
+            display: inline-block;
+            margin-left: 5%;
+            color: black;
+            text-decoration: none;
+        }
+      .text a:hover{
+        display: inline-block;
+        color: rgb(72, 131, 220);
+        text-decoration: none;
+      }
+      .spacer{
+        display: inline-block;
+        margin: 0px 4px;
+        padding: 10px;
+        color: black;
+        text-decoration: none;
+      }
+      .extreme{
+        display:inline-block;
+        position:absolute;
+        right: 0px;
+        margin-left: 25%;
+        padding: 10px;
+      }
+      #num{
+        padding: 4px 9px;
+      }
+      #mail{
+        padding: 4px 9px;
+      }
+      .sec-container{
+        margin: 0px;
+            padding: 0px;
+            width: 100%;
+            box-sizing: border-box;
+            display: block;
+      }
+      .icon{
+        display: inline-block;
+        margin-left: 5%;
+        padding: 19px 5px;
+     }
+     .headers{
+        display: inline;
+        margin-left:20% ;
+        margin-right: 20%;
+    }
+    #spacers a:hover{
+        color: rgb(119, 153, 227);
+    }
+    .headers a{
+        color: black;
+        font-weight: bold;
+        padding-left: 8px;
+        padding-right: 8px;
+        text-decoration: lavenderblush;
+    }
+    .action{
+        display: inline;
+        position: absolute;
+        right: 1%;
+         }
+    button{
+        margin: 10px;
+    padding: 7px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+    background: blue;
+}
+.third-container{
+    display: flex;
+    position: relative;
+    height: 80vh;
+}
+img{
+  background-repeat: no-repeat;
+ position: absolute;
+ width: 100%;
+ height: 60vh;
+ z-index: -1;
+}
+.doc{
+    position: absolute;
+    top: 16%;
+    left: 4%;
+}
+h1{
+    font-size: 38px;
+}
+.third-container p{
+    position: absolute;
+    top: 38%;
+    left: 1%;
+    font-size: 20px;
+}
+.box-in{
+    display: flex;
+    position: relative;
+    width: 52%;
+    top: 60%;
+    height: 31vh;
+    justify-content: space-evenly;
+}
+.third{
+    display: flex;
+    justify-content: space-around;
+}
+.box0{
+    display: flex;
+    position: absolute;
+    background-color: rgb(95, 133, 228);
+    width: 196px;
+    height: 191px;
+    border: 1px solid black;
+    left: 5%;
+}
+.box1{
+    display: flex;
+    position: absolute;
+    width: 196px;
+    height: 191px;
+    background-color: rgb(95, 133, 228);
+    border: 1px solid black; 
+    left: 40%;
+}
+.box2{
+    display: flex;
+    position: absolute;
+    background-color: rgb(95, 133, 228);
+    width: 196px;
+    height: 191px;
+    border: 1px solid black;
+    left: 75%;
+}
+.emergency{
+    width: 100%;
+	height: 60vh;
+	background:  linear-gradient(0deg, rgb(0 0 0 / 30%), rgb(0 0 0 / 60%)),
+		url(../puneeth/img/emergency.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+.img-emergency{
+    width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-size: 24px;
+	font-weight: 500;
+	color: #fff;
+	text-align: center;
+	padding: 0px 20px;
+	margin: 0px 20px;
+	line-height: 1.5;
+}
+
+.image-01 {
+	background-image: url('https://images.unsplash.com/photo-1618356387617-8d2f8cfbc79c?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8NnNNVmpUTFNrZVF8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+}
+
+.image-02 {
+	background-image: url('https://images.unsplash.com/photo-1618614293875-cfe98355681d?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDN8NnNNVmpUTFNrZVF8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+}
+
+.image-03 {
+	background-image: url('https://images.unsplash.com/photo-1618627575331-b5f0d4cd72ce?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDR8NnNNVmpUTFNrZVF8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60');
+}
+
+.image-04 {
+	background-image: url('https://images.unsplash.com/photo-1568602048381-2285db7095c6?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDI1fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60');
+}
+
+.image-05 {
+	background-image: url('https://images.unsplash.com/photo-1580319204908-eff9d6f0bd68?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDMxfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60');
+}
+
+.image-06 {
+	background-image: url('https://images.unsplash.com/photo-1604927737867-9f413dac3d08?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDYwfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+}
+
+.image-07 {
+	background-image: url('https://images.unsplash.com/photo-1614191663579-8780442c043b?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDk3fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+}
+
+.image-08 {
+	background-image: url('https://images.unsplash.com/photo-1605812466869-dab071e96c35?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDExNnw2c01WalRMU2tlUXx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60');
+}
+
+.image-09 {
+	background-image: url(' https://images.unsplash.com/photo-1617292801457-b108c1672a3d?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDExMnw2c01WalRMU2tlUXx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+}
+
+.image-10 {
+	background-image: url('https://images.unsplash.com/photo-1616724319135-2370dbb4424c?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE2Nnw2c01WalRMU2tlUXx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60');
+}
+
+.image-11 {
+	background-image: url('https://images.unsplash.com/photo-1616418672515-1c2b39e219d3?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE5N3w2c01WalRMU2tlUXx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60');
+}
+
+.image-12 {
+	background-image: url('https://images.unsplash.com/photo-1548164806-9709e698bfc8?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDIzOHw2c01WalRMU2tlUXx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60');
+}
+.image-grid{
+    display: grid;
+    grid-auto-rows:230px;
+    grid-template-columns: repeat(3, 260px);
+    gap: 5px;
+    grid-auto-flow: dense;
+}
+.image{
+    box-shadow: inset 2px 3px 20px 14px black
+}
+.image-grid.image.image-01 a:hover{
+        display: grid;
+        color: rgb(72, 131, 220);
+        text-decoration: none;
+    }
+   /* Footer Styles */
+.footer {
+    background-color: #1565c0; /* Matching the blue background */
+    color: #ffffff;
+    padding: 60px 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-column {
+    flex: 1 1 250px;
+    min-width: 220px;
+}
+
+.footer-column h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ffffff;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-column p,
+.footer-column li {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li::before {
+    content: "▶";
+    font-size: 10px;
+    margin-right: 8px;
+    color: #fff;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.footer-socials a {
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    padding: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    transition: background-color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    background-color: #0d47a1;
+}
+
+.footer-hours {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.footer-hours span {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+}
+
+.footer-newsletter input[type="email"] {
+    padding: 10px;
+    border: none;
+    width: 70%;
+    border-radius: 3px 0 0 3px;
+}
+
+.footer-newsletter button {
+    padding: 10px;
+    border: none;
+    background-color: #0d47a1;
+    color: #fff;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    background-color: #0d47a1;
+    font-size: 13px;
+}
+.links-align{
+    display: flex;
+    gap: 40px;
+}
+.links-align li{
+    margin-bottom: 10px;
+}
+.links-align ul{
+    list-style: none;
+    padding: 0;
+}
+@media only screen and (max-width: 500px) {
+  .footer-container {
+    flex-direction: column;
+    width: min-content;
+  }
+
+  .footer-column {
+    min-width: 100%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .links-align {
+    flex-direction: column;
+  }
+
+  .form {
+    flex-direction: column;
+  }
+
+  .form input {
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .form button {
+    border-radius: 4px;
+  }
+}
+    </style>
+</head>
+<body>
+    <nav class="fir-container">
+       <div class="initial text">
+        <a href="" class="spacer">About</a>
+        <a href="" class="spacer">Doctor</a>
+        <a href="" class="spacer">Contact</a>
+        <a href="" class="spacer">FAQ</a>
+     </div>
+     <div class="extreme">
+        <span id="num">8912704941</span>
+        <span id="mail">Mediplus@gmail.com</span>
+     </div>
+    </nav>
+    <nav class="sec-container">
+        <div class="icon">
+            MediPlus
+        </div>
+        <div class="headers text">
+            <a href="" id="spacers">Home</a>
+            <a href="" id="spacers">About</a>
+            <a href="" id="spacers">Doctor</a>
+            <a href="" id="spacers">Contact</a>
+            <a href="" id="spacers">FAQ</a>
+        </div>
+        <div class="action">
+            <button>Book Appointment</button>
+        </div>
+    </nav>
+   <nav class="third-container">
+        <div class="image">
+            <img src="./doc.jpg" alt="doctor">
+        </div>
+        <div class="doc text">
+            <h1>Welcome to MediPlus</h1>
+					<p>Your health is our priority</p>
+					<button>Book Appointment</button>
+        </div>
+        <div class="box-in third">
+            <div class="box0"></div>
+            <div class="box1"></div>
+            <div class="box2"></div>
+        </div>
+   </nav>
+   <main>
+    <section class="emergency">
+        <div class="img-emergency">
+            <div class="emergency-info text">
+                Do you need Emergency Medical Care? Call @ 1234 56789
+            </div>
+            <div class="emergency-info second-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+                porttitor dictum turpis nec gravida.
+            </div>
+            <div class="emergency-info two-button">
+                <div class="contact">
+                    <button>Contact Us</button>
+                </div>
+                <div class="contact">
+                    <button>Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="gallery">
+        <h2>css image Grid</h2>
+     <div class="image-grid">
+        <div class="image image-01"><a href="" ></a></div>
+		<div class="image image-02"></div>
+        <div class="image image-03" style="grid-row: span 2;"></div>
+		<div class="image image-04"></div>
+		<div class="image image-05"></div>
+		<div class="image image-06"></div>
+		<div class="image image-07"></div>
+		<div class="image image-08"></div>
+		<div class="image image-09"></div>
+		<div class="image image-10"></div>
+		<div class="image image-11"></div>
+		<div class="image image-12" style="grid-column: span 2;"></div>
+		<div class="image image-13"></div>
+		<div class="image image-14"></div>
+        <div class="image image-06"></div>
+     </div>   
+    </section>
+    <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>About Us</h3>
+            <p>Lorem ipsum dolor sit am consectetur adipisicing elit do eiusmod tempor incididunt ut labore dolore magna.</p>
+            <div class="footer-socials">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-google-plus-g"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-vimeo-v"></i></a>
+              <a href="#"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <div class="links-align">
+            <ul>
+              <li>Home</li>
+              <li>About Us</li>
+              <li>Services</li>
+              <li>Our Cases</li>
+              <li>Other Links</li>
+              </ul>
+              <ul>
+              <li>Consulting</li>
+              <li>Finance</li>
+              <li>Testimonials</li>
+              <li>FAQ</li>
+              <li>Contact Us</li>
+            </ul>
+        </div>
+          </div>
+          <div class="footer-column">
+            <h3>Open Hours</h3>
+            <p>Lorem ipsum dolor sit ame consectetur adipisicing elit do eiusmod tempor incididunt.</p>
+            <div class="footer-hours">
+              <span><strong>Monday - Friday</strong> <span>8.00–20.00</span></span>
+              <span><strong>Saturday</strong> <span>9.00–18.30</span></span>
+              <span><strong>Monday - Thursday</strong> <span>9.00–15.00</span></span>
+            </div>
+          </div>
+          <div class="footer-column footer-newsletter">
+            <h3>Newsletter</h3>
+            <p>Subscribe to our newsletter to get all our news in your inbox.. Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
+            <div class="form">
+            <form>
+              <input type="email" placeholder="Email Address">
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+            © Copyright 2018 | All Rights Reserved by 
+            <a href="https://wpthemesgrid.com" style="color: #fff; text-decoration: underline;">wpthemesgrid.com</a>
+          </div>
+    </div>
+</footer>
+   </main>
+</body>
+</html>

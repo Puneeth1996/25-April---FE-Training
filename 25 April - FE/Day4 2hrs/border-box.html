@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			.box1 {
+				width: 100px;
+				height: 100px;
+				/* padding: 50px; */
+				border: 10px solid black;
+				margin: 50px;
+				background-color: orange;
+				box-sizing: content-box; /* Default value */
+			}
+			.box2 {
+				width: 100px;
+				height: 100px;
+				/* Padding takes up additional space extra in border box */
+				/* padding: 50px; */
+				border: 10px solid #720b0b;
+				margin: 50px;
+				background-color: #00ff44;
+				box-sizing: border-box; /* need to over ride value */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">With no : Border box</div>
+		<div class="box2" v>Border box</div>
+	</body>
+</html>

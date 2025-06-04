@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Product Page & Cart</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background: #f4f4f4;
+			}
+			header {
+				background: #333;
+				color: #fff;
+				padding: 1rem;
+				text-align: center;
+			}
+			nav {
+				display: flex;
+				justify-content: center;
+				gap: 2rem;
+				margin: 1rem;
+			}
+			nav a {
+				text-decoration: none;
+				color: #333;
+				font-weight: bold;
+			}
+			.container {
+				padding: 2rem;
+			}
+			.products,
+			.cart {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+				gap: 2rem;
+			}
+			.product,
+			.cart-item {
+				background: #fff;
+				padding: 1rem;
+				border-radius: 8px;
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			}
+			button {
+				background: #28a745;
+				color: #fff;
+				border: none;
+				padding: 0.5rem 1rem;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+			button:hover {
+				background: #218838;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>My Store</h1>
+		</header>
+
+		<nav>
+			<a href="#products" onclick="showPage('products')">Products</a>
+			<a href="#cart" onclick="showPage('cart')">Cart</a>
+		</nav>
+
+		<div class="container">
+			<section id="products" class="products">
+				<!-- Add more product placeholders here -->
+			</section>
+
+			<section id="cart" class="cart" style="display: none">
+				<!-- Cart items will go here -->
+			</section>
+		</div>
+
+		<script>
+			const products_array = [
+				{
+					name: 'Product 1',
+					id: 1,
+					price: 10,
+					cart_qty: 0,
+					discount: 0,
+					date_added: '2025-05-01',
+					date_expiry: '2025-05-18',
+					avb_qty: 10,
+				},
+				{
+					name: 'Product 2',
+					id: 2,
+					price: 25,
+					cart_qty: 0,
+					discount: 0,
+					date_added: '2025-05-01',
+					date_expiry: '2025-05-18',
+					avb_qty: 10,
+				},
+				{
+					name: 'Product 3',
+					id: 3,
+					price: 5,
+					cart_qty: 0,
+					discount: 0,
+					date_added: '2025-05-01',
+					date_expiry: '2025-05-18',
+					avb_qty: 10,
+				},
+				{
+					name: 'Product 4',
+					id: 4,
+					price: 55,
+					cart_qty: 0,
+					discount: 0,
+					date_added: '2025-05-01',
+					date_expiry: '2025-05-18',
+					avb_qty: 10,
+				},
+				{
+					name: 'Product 5',
+					id: 5,
+					price: 60,
+					cart_qty: 0,
+					discount: 0,
+					date_added: '2025-05-01',
+					date_expiry: '2025-05-18',
+					avb_qty: 10,
+				},
+				{
+					name: 'Product 6',
+					id: 6,
+					price: 35,
+					cart_qty: 0,
+					discount: 0,
+					date_added: '2025-05-01',
+					date_expiry: '2025-05-18',
+					avb_qty: 10,
+				},
+				{
+					name: 'Product 7',
+					id: 7,
+					price: 15,
+					cart_qty: 0,
+					discount: 0,
+					date_added: '2025-05-01',
+					date_expiry: '2025-05-18',
+					avb_qty: 100,
+				},
+				{
+					name: 'Product 8',
+					id: 8,
+					price: 8,
+					cart_qty: 0,
+					discount: 0,
+					date_added: '2025-05-01',
+					date_expiry: '2025-05-18',
+					avb_qty: 10,
+				},
+			]
+			const cart_array = []
+
+			// Javascript to dynamically add products to the page
+
+			const products_section = document.getElementById('products')
+			for (let i = 0; i < products_array.length; i++) {
+				const each_product = `
+				<div class="product">
+					<h3>${products_array[i].name}</h3>
+					<p>Price: $${products_array[i].price}</p>
+					<button class="add-to-cart" id="addToCart-id-${products_array[i].id}">Add to Cart</button>
+				</div>
+				`
+				products_section.innerHTML = products_section.innerHTML + each_product
+			}
+			function showPage(pageId) {
+				document.getElementById('products').style.display =
+					pageId === 'products' ? 'grid' : 'none'
+				document.getElementById('cart').style.display =
+					pageId === 'cart' ? 'grid' : 'none'
+			}
+			function updateCardScreen() {
+				const cart_section = document.getElementById('cart')
+				for (let i = 0; i < cart_array.length; i++) {
+					const each_cart_product = `
+						<div class="product">
+							<h3>${cart_array[i].name}</h3>
+							<p>Price: $${cart_array[i].price}</p>
+							<button class="add-to-cart" id="removeCart-id-${cart_array[i].id}">Remove</button>
+							<button class="add-to-cart" id="increaseProductCart-id-${cart_array[i].id}">Increase(+)</button>
+
+						</div>
+						`
+					cart_section.innerHTML = cart_section.innerHTML + each_cart_product
+				}
+			}
+			function handleAddToCartForEachButton(buttonId) {
+				const productIdSplit = buttonId.split('-')
+				const productId = productIdSplit[productIdSplit.length - 1]
+				console.log(productId)
+				const productObject = products_array.filter(
+					(item) => item.id === parseInt(productId)
+				).length
+					? products_array.filter((item) => item.id === parseInt(productId))[0]
+					: {}
+				cart_array.push(productObject)
+				updateCardScreen()
+			}
+			const allAddToCartButton = document.getElementsByClassName('add-to-cart')
+			console.log(allAddToCartButton)
+			for (let i = 0; i < allAddToCartButton.length; i++) {
+				const eachBtn = allAddToCartButton[i]
+				const buttonIdValue = eachBtn.id
+				eachBtn.addEventListener('click', () =>
+					handleAddToCartForEachButton(buttonIdValue)
+				)
+			}
+		</script>
+	</body>
+</html>

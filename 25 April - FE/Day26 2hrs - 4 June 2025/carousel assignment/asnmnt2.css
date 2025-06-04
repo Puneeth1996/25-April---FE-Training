@@ -1,0 +1,66 @@
+/* .main-container {
+	display: flex;
+	position: relative;
+	width: 100%;
+	height: 40vh;
+	flex-direction: row;
+	gap: 10px;
+}
+.sub-container {
+	display: grid;
+	grid-template-columns: repeat(10, 25vh);
+	grid-column: 1/-1;
+	gap: 10px;
+	width: 25vh;
+	border: 3px solid black;
+	background-color: blueviolet;
+	border-radius: 5px;
+}
+
+img {
+	max-width: 100%;
+	height: 34vh;
+	display: block;
+}
+.details {
+	overflow: hidden;
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+.left-point,
+.right-point {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	padding: 16px;
+	margin-top: -22px;
+	color: white;
+	font-weight: bold;
+	font-size: 24px;
+	transition: 0.3s;
+	user-select: none;
+	background: rgba(0, 0, 0, 0.5);
+}
+.left-point {
+	left: 0;
+}
+.right-point {
+	right: 0;
+} */
+
+.container {
+	display: flex;
+}
+.carosel-container {
+	display: flex;
+	flex-direction: row;
+}
+.carosel-container .card .img img {
+	width: 10rem;
+	height: 10rem;
+}
+
+.carosel-container .card {
+	margin: 1rem 0.5rem;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Contact Us</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background: #f2f2f2;
+				padding: 20px;
+			}
+			.contact-form {
+				background: white;
+				padding: 20px;
+				max-width: 400px;
+				margin: auto;
+				border-radius: 8px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			}
+			.contact-form h2 {
+				margin-bottom: 15px;
+			}
+			.contact-form input,
+			.contact-form textarea {
+				width: 100%;
+				padding: 10px;
+				margin: 8px 0;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+			}
+			.contact-form button {
+				background-color: #007bff;
+				color: white;
+				border: none;
+				padding: 10px;
+				border-radius: 4px;
+				cursor: pointer;
+				width: 100%;
+			}
+			.contact-form button:hover {
+				background-color: #0056b3;
+			}
+			#error-name {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="contact-form">
+			<h2>Contact Us</h2>
+			<div>Curent Date: <span id="displayData-span"></span></div>
+			<form id="contact-form">
+				<input type="text" name="name" placeholder="Your Name" required />
+				<p id="error-name"></p>
+				<input type="email" name="email" placeholder="Your Email" required />
+				<textarea
+					name="message"
+					rows="5"
+					placeholder="Your Message"
+					required
+				></textarea>
+				<button type="submit" onclick="" id="myBtn">Send</button>
+			</form>
+		</div>
+	</body>
+	<script>
+		const sendbtn = document.getElementById('myBtn')
+		sendbtn.addEventListener('click', handleSubmitContactFormButton)
+
+		function handleSubmitContactFormButton(event) {
+			console.log('send btn clicked', event)
+			document.getElementById('displayData-span').innerHTML = Date()
+			event.preventDefault()
+			// 1st capture the values of name email message
+			const form = document.getElementById('contact-form')
+			const errorNamePTag = document.getElementById('error-name')
+
+			const name = form.elements['name'].value
+			console.log('Form name = ' + name)
+			const email = form.elements['email'].value
+			console.log('Form email = ' + email)
+			const message = form.elements['message'].value
+			console.log('Form message = ' + message)
+			// 2nd Validate the form values and display errors if any
+			// Name : Check if only characters and length not more than 20
+			// Email : Check if valid email format
+			// Message : Check if not empty and length not more than 200
+			if (name.length > 20 || !/^[a-zA-Z]+$/.test(name)) {
+				errorNamePTag.style.display = 'block'
+				errorNamePTag.innerHTML =
+					'Name should be less than 20 characters and only characters'
+				errorNamePTag.style.color = 'red'
+				errorNamePTag.style.fontSize = '12px'
+				errorNamePTag.style.fontWeight = 'bold'
+				return
+			} else {
+				errorNamePTag.style.display = 'none'
+			}
+			// 3rd if no errors then post the data to an API
+			const apiData = {
+				name: name,
+				email: email,
+				message: message,
+			}
+			console.log('API Data to post = ')
+			console.log(apiData)
+			// 4th show success message
+			alert('Form submitted successfully')
+			// 5th clear the form values
+			form.elements['name'].value = ''
+			form.elements['email'].value = ''
+			form.elements['message'].value = ''
+		}
+	</script>
+</html>
