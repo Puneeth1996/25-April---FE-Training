@@ -1,0 +1,20 @@
+[
+  {
+    "id": 2,
+    "name": "Banana",
+    "price": 1.29,
+    "quantity": 2
+  },
+  {
+    "id": 1749013385744,
+    "name": "Sample Item",
+    "price": 19.99,
+    "quantity": 2
+  },
+  {
+    "id": 1,
+    "name": "Updated Item",
+    "price": 29.99,
+    "quantity": 1
+  }
+]
