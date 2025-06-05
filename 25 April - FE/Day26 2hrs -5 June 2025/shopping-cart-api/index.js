@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const fs = require('fs')
 const path = require('path')
+const products = require('./data/products')
 const app = express()
 const PORT = 3000
 
@@ -58,6 +59,11 @@ app.delete('/cart/:id', (req, res) => {
 	}
 	writeCart(filtered)
 	res.status(204).send()
+})
+
+// GET /products
+app.get('/products', (req, res) => {
+	res.json(products)
 })
 
 app.listen(PORT, () => {
