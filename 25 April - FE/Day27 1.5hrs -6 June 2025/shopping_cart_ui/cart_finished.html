@@ -88,6 +88,7 @@
   </div>
 
   <script>
+    const base_url = "http://localhost:3000"
     const cart_array = []
     function renderProducts(products_array) {
       const products_section = document.getElementById("products");
@@ -103,50 +104,76 @@
         productElement
           .querySelector(".add-to-cart")
           .addEventListener("click", () => {
-            handleAddToCart(product.id, products_array);
+            handleAddToCart(product);
           });
         products_section.appendChild(productElement);
       });
     }
 
-    function handleAddToCart(productId, products_array) {
-      const product = products_array.find((p) => p.id === productId);
-      const inCart = cart_array.find((item) => item.id === productId);
-      if (inCart) {
-        inCart.cart_qty += 1;
-      } else {
-        cart_array.push({ ...product, cart_qty: 1 });
+
+    async function handleAddToCart(product) {
+      const add_to_cart_url = base_url + "/cart";
+      try {
+        const response = await fetch(add_to_cart_url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(product)
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('User created successfully:', data);
+        return data;
+      } catch (error) {
+        console.error('Failed to create user:', error);
+        throw error; // Re-throw to allow further handling
       }
-      updateCartScreen();
+      updateCartScreenWithNewAPIData();
     }
 
-    function updateCartScreen() {
+    async function updateCartScreenWithNewAPIData() {
+      const get_cart_url = base_url + "/cart";
+      try {
+        const response = await fetch(get_cart_url);
+        if (!response.ok) {
+          throw new Error(`Response status: ${response.status}`);
+        }
+        const cart_data = await response.json();
+        updateCartScreen(cart_data);
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
+    function updateCartScreen(cart_array) {
       const cart_section = document.getElementById("cart");
       cart_section.innerHTML = "";
       cart_array.forEach((item) => {
         const cartItem = document.createElement("div");
         cartItem.className = "cart-item";
         cartItem.innerHTML = `
-						<h3>${item.name}</h3>
-						<p>Price: $${item.price}</p>
-						<p>Quantity: ${item.cart_qty}</p>
-						<button onclick="removeFromCart(${item.id})">Remove</button>
-						<button onclick="increaseQuantity(${item.id})">Increase(+)</button>
-					`;
+      			<h3>${item.name}</h3>
+      			<p>Price: $${item.price}</p>
+      			<p>Quantity: ${item.quantity}</p>
+      			<button onclick="removeFromCart(${item})">Remove</button>
+      			<button onclick="increaseQuantity(${item})">Increase(+)</button>
+      		`;
         cart_section.appendChild(cartItem);
       });
     }
 
-    function removeFromCart(productId) {
-      const index = cart_array.findIndex((item) => item.id === productId);
-      if (index > -1) cart_array.splice(index, 1);
-      updateCartScreen();
+    function removeFromCart(product_item) {
+      // PUT - Update Quantity
+      updateCartScreenWithNewAPIData();
     }
 
-    function increaseQuantity(productId) {
-      const item = cart_array.find((item) => item.id === productId);
-      if (item) item.cart_qty += 1;
-      updateCartScreen();
+    function increaseQuantity(product_item) {
+      // PUT - Update Quantity
+      updateCartScreenWithNewAPIData();
     }
 
     function showPage(pageId) {
@@ -157,22 +184,21 @@
     }
 
     async function getData() {
-      const url = "http://localhost:3000/cart";
+      const get_products_url = base_url + "/products";
       try {
-        const response = await fetch(url);
+        const response = await fetch(get_products_url);
         if (!response.ok) {
           throw new Error(`Response status: ${response.status}`);
         }
-
-        const json = await response.json();
-
+        const products_data = await response.json();
         // Initial render
-        renderProducts(json);
+        renderProducts(products_data);
       } catch (error) {
         console.error(error.message);
       }
     }
     getData();
+    updateCartScreenWithNewAPIData();
   </script>
 </body>
 

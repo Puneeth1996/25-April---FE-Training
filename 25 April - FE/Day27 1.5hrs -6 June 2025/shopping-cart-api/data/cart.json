@@ -1,26 +1,50 @@
 [
-	{
-		"id": "a5ed3fd9-d4da-4ac7-b77b-23c6843d83d3",
-		"name": "T-shirt",
-		"price": 499,
-		"quantity": 29
-	},
-	{
-		"id": "bb343ee3-8943-4d04-b106-ee252a2bfc63",
-		"name": "Jeans",
-		"price": 899,
-		"quantity": 2
-	},
-	{
-		"id": "2e06bf62-633a-42e0-a88e-16bae08e30b8",
-		"name": "Sneakers",
-		"price": 1499,
-		"quantity": 49
-	},
-	{
-		"id": "381cb492-48f4-4403-8102-d1626233b11c",
-		"name": "Hoodie",
-		"price": 799,
-		"quantity": 30
-	}
+  {
+    "id": "a5ed3fd9-d4da-4ac7-b77b-23c6843d83d3",
+    "name": "T-shirt",
+    "price": 499,
+    "quantity": 29
+  },
+  {
+    "id": "bb343ee3-8943-4d04-b106-ee252a2bfc63",
+    "name": "Jeans",
+    "price": 899,
+    "quantity": 5
+  },
+  {
+    "id": "2e06bf62-633a-42e0-a88e-16bae08e30b8",
+    "name": "Sneakers",
+    "price": 1499,
+    "quantity": 49
+  },
+  {
+    "id": "381cb492-48f4-4403-8102-d1626233b11c",
+    "name": "Hoodie",
+    "price": 799,
+    "quantity": 30
+  },
+  {
+    "id": "1adc1db4-78e5-4f63-98f5-13bf26609750",
+    "name": "NIKE NEW Sneakers",
+    "price": 99,
+    "quantity": 37
+  },
+  {
+    "id": "aff787df-5aaf-4335-b801-7d2d038d80ee",
+    "name": "T-shirt",
+    "price": 499,
+    "quantity": 49
+  },
+  {
+    "id": "5cb0aff9-b1a8-4b05-b569-77bdf2d8f880",
+    "name": "Watch",
+    "price": 1999,
+    "quantity": 36
+  },
+  {
+    "id": "83d03f50-7b41-4c3a-bd8a-cc08183634e5",
+    "name": "Belt",
+    "price": 399,
+    "quantity": 32
+  }
 ]

@@ -44,7 +44,7 @@ app.post('/cart', (req, res) => {
 
 app.put('/cart/:id', (req, res) => {
 	let items = readCart()
-	const index = items.findIndex((i) => i.id === parseInt(req.params.id))
+	const index = items.findIndex((i) => i.id === req.params.id)
 	if (index === -1) return res.status(404).json({ message: 'Item not found' })
 	items[index] = { ...items[index], ...req.body }
 	writeCart(items)
@@ -53,7 +53,7 @@ app.put('/cart/:id', (req, res) => {
 
 app.delete('/cart/:id', (req, res) => {
 	let items = readCart()
-	const filtered = items.filter((i) => i.id !== parseInt(req.params.id))
+	const filtered = items.filter((i) => i.id !== req.params.id)
 	if (filtered.length === items.length) {
 		return res.status(404).json({ message: 'Item not found' })
 	}
