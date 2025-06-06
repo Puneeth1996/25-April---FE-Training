@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .carosel-container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .carosel-container .card .img img {
+            width: 10rem;
+            height: 10rem;
+        }
+
+        .carosel-container .card {
+            margin: 1rem 0.5rem;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-RXf+QSDCUQs6gkH+q8RkCkUeVuJQ2I9Z7HvU2ZhZkQf5cKXJhM1m5hRO4OjHNF0TqW8Mf2BdL2Bw8Fi7IQn+4g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <a class="left-point" onclick="updateSlides(-1)">&lt;</a>
+        <div class="carosel-container">
+            <div class="card">
+                <div class="img"><img src="./c1.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c2.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c3.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c4.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c1.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c2.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c3.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c4.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c1.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c2.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c3.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img"><img src="./c4.jpg"></div>
+                <div class="details">
+                    <p>title</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+        </div>
+        <a class="right-point" onclick="updateSlides(1)">&gt;</a>
+    </div>
+
+    <script>
+        let cpv = 5;
+        let cards = document.querySelectorAll('.card');
+
+        let totalCard = cards.length;
+        console.log(totalCard);
+        let currentInd = 0;
+
+        function showSlides(currentInd) {
+            console.log("🚀 ~ showSlides ~ currentInd:", currentInd)
+            let init = currentInd % totalCard;
+            console.log("🚀 ~ showSlides ~ init:", init)
+            let end = (currentInd + cpv) % totalCard;
+            console.log("🚀 ~ showSlides ~ end:", end)
+            const cardsArr = [...cards];
+            cards.forEach(card => card.style.display = "none");
+            if (init < end) {
+                const displayArr = cardsArr.slice(init, end);
+                for (let i = 0; i < displayArr.length; i++) {
+                    displayArr[i].style.display = "block";
+                }
+            } else {
+                cards.forEach(card => card.style.display = "none");
+                let displayArr = cardsArr.slice(init);
+                console.log("🚀 ~ showSlides ~ displayArr:", cardsArr.slice(init))
+                console.log("🚀 ~ showSlides ~ cardsArr.slice(0, end):", cardsArr.slice(0, end))
+                displayArr = displayArr.concat(cardsArr.slice(0, end));
+                for (let i = 0; i < displayArr.length; i++) {
+                    displayArr[i].style.display = "block";
+                }
+            }
+
+        }
+        function updateSlides(n) {
+            currentInd = (currentInd + n) % totalCard;
+            console.log("🚀 ~ updateSlides ~ currentInd:", currentInd)
+            showSlides(currentInd);
+        }
+        window.addEventListener('load', () => {
+            updateSlides(0);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+Steup 
+npm install
+npm start
+
+Endpoints that are present are as below: 
+
+
+Shopping Cart API Endpoints
+
+
+
+Method	    Endpoint	Description	                    
+GET	        /cart	    Retrieve all items in the cart
+GET	        /cart/:id	Retrieve a specific cart item by ID
+POST	    /cart	    Add a new item to the cart	- { "name": "Item Name", "price": 100, "quantity": 2 }
+PUT	        /cart/:id	Update an existing cart item by ID -	{ "name": "Updated Item", "price": 150, "quantity": 3 }
+DELETE	    /cart/:id	Remove an item from the cart by ID	
