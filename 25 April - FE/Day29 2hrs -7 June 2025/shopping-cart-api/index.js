@@ -26,7 +26,7 @@ app.get('/cart', (req, res) => {
 
 app.get('/cart/:id', (req, res) => {
 	const items = readCart()
-	const item = items.find((i) => i.id === parseInt(req.params.id))
+	const item = items.find((i) => i.id === req.params.id)
 	if (!item) return res.status(404).json({ message: 'Item not found' })
 	res.json(item)
 })

@@ -96,7 +96,7 @@
       products_array.forEach((product) => {
         const productElement = document.createElement("div");
         productElement.className = "product";
-        productElement.innerHTML = `
+        productElement.innerHTML = `          
 						<h3>${product.name}</h3>
 						<p>Price: $${product.price}</p>
 						<button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
@@ -159,23 +159,64 @@
       			<h3>${item.name}</h3>
       			<p>Price: $${item.price}</p>
       			<p>Quantity: ${item.quantity}</p>
-      			<button onclick="removeFromCart(${item})">Remove</button>
-      			<button onclick="increaseQuantity(${item})">Increase(+)</button>
+      			<button onclick="getCartItemById('${item.id}', 'remove')">Remove</button>
+      			<button onclick="getCartItemById('${item.id}', 'increase_quantity')">Increase(+)</button>
       		`;
         cart_section.appendChild(cartItem);
       });
     }
-
-    function removeFromCart(product_item) {
-      // PUT - Update Quantity
-      updateCartScreenWithNewAPIData();
+    async function getCartItemById(id, info) {
+      const get_cart_item_by_id = `${base_url}/cart/${id}`;
+      try {
+        const response = await fetch(get_cart_item_by_id, {
+          method: 'GET',
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const cart_data = await response.json();
+        info === "remove" ? removeFromCart(cart_data) : increaseQuantity(cart_data)
+      } catch (error) {
+        console.error('Failed GET CART ITEM BY ID:', error);
+      }
+    }
+    async function removeFromCart(c) {
+      const remove_url = `${base_url}/cart/${product_item.id}`;
+      try {
+        const response = await fetch(remove_url, {
+          method: 'DELETE',
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        updateCartScreenWithNewAPIData();
+      } catch (error) {
+        console.error('Failed to remove item from cart:', error);
+      }
     }
 
-    function increaseQuantity(product_item) {
-      // PUT - Update Quantity
-      updateCartScreenWithNewAPIData();
-    }
+    async function increaseQuantity(product_item) {
+      const update_url = `${base_url}/cart/${product_item.id}`;
+      const newObjectBody = { ...product_item }
+      newObjectBody.quantity++;
+      try {
+        const response = await fetch(update_url, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newObjectBody)
+        });
 
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        updateCartScreenWithNewAPIData();
+      } catch (error) {
+        console.error('Failed to update item quantity:', error);
+      }
+    }
     function showPage(pageId) {
       document.getElementById("products").style.display =
         pageId === "products" ? "grid" : "none";
