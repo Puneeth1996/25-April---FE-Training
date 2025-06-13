@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+
+<body>
+
+    <div>
+        <span id="hours"></span><br />
+        <span id="mins"></span><br />
+        <span id="secs"></span><br />
+    </div>
+    <script>
+        let sec = 60, min = 59, hrs = 1;
+        const hrsElem = document.getElementById('hours')
+        const minsElem = document.getElementById('mins')
+        const secsElem = document.getElementById('secs')
+        function displayInHtml(sec, min, hrs) {
+
+            hours.textContent = 'hrs' + + ' : ' + hrs.toString();
+            mins.textContent = 'mins' + + ' : ' + mins.toString();
+            secs.textContent = 'secs' + + ' : ' + secs.toString();
+        }
+
+
+        function startCountDown(sec, min, hrs) {
+            const intervalSeconds = setInterval(() => {
+                console.log("Before ", sec, min, hrs)
+                sec = sec - 1;
+                if (sec < 0) {
+                    sec = 60
+                    min = min - 1
+                }
+                if (min < 0) {
+                    min = 60
+                    hrs = hrs - 1
+                }
+                console.log("After ", sec, min, hrs)
+                displayInHtml(sec, min, hrs)
+            }, 1000)
+        }
+        startCountDown(sec, min, hrs)
+    </script>
+</body>
+
+</html>
