@@ -70,10 +70,31 @@ function addTask() {
 	deleteBtn.textContent = 'Delete'
 	deleteBtn.addEventListener('click', () => {
 		taskItem.remove()
+		// remove the item from localStorage
+		const currentTasks = JSON.parse(localStorage.getItem('task'))
+		const updatedTasks = currentTasks.filter(
+			(task) => task.taskText !== item.taskText
+		)
+		localStorage.setItem('task', JSON.stringify(updatedTasks))
 	})
 
 	taskItem.appendChild(taskSpan)
 	taskItem.appendChild(deleteBtn)
+
+	taskItem.addEventListener('click', () => {
+		taskItem.classList.toggle('completed')
+		let isCompleted = hasClass(taskItem, 'completed')
+
+		const currentTasks = JSON.parse(localStorage.getItem('task'))
+		const updateList = [
+			...currentTasks.filter((task) => task.taskText !== taskText),
+			{
+				taskText: taskText,
+				itemStatus: isCompleted ? 'completed' : 'pending',
+			},
+		]
+		localStorage.setItem('task', JSON.stringify(updateList))
+	})
 
 	const taskItemToStore = { taskText, itemStatus: 'pending' }
 	const getCurrentTasks = localStorage.getItem('task')
@@ -84,19 +105,6 @@ function addTask() {
 	} else {
 		localStorage.setItem('task', JSON.stringify([taskItemToStore]))
 	}
-	taskItem.addEventListener('click', () => {
-		taskItem.classList.toggle('completed')
-		let isCompleted = hasClass(taskItem, 'completed')
-
-		const updateList = [
-			...currentTasks.filter((task) => task.taskText !== item.taskText),
-			{
-				taskText: item.taskText,
-				itemStatus: isCompleted ? 'completed' : 'pending',
-			},
-		]
-		localStorage.setItem('task', JSON.stringify(updateList))
-	})
 	taskList.appendChild(taskItem)
 	taskInput.value = ''
 }
